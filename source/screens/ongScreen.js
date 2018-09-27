@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView, FlatList } from 'react-nativ
 
 import dogs from '../assets/dogs.jpeg'
 
-export default class App extends React.Component {
+export default class OngScreen extends React.Component {
 
    static navigationOptions = ({navigation}) => ({
     title:'bem vindo',
@@ -54,9 +54,6 @@ export default class App extends React.Component {
             <Text style={styles.text1}> {item.title}</Text>
             <Text style={styles.text1}>{item.rua}</Text>
             <Text style={styles.text1}>{item.horario}</Text>
-            <View style={styles.acaoSobreOng}>
-              <Text style={styles.descartar}>x</Text>
-            </View>
           </View>
         </View>  
       </View>

@@ -1,43 +1,36 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, FlatList, Button } from 'react-native';
-import {TabNavigator, StackNavigator} from 'react-navigation'
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, Button } from 'react-native';
+import {Tacreate, createStackNavigator} from 'react-navigation'
 
 import OngScreen from './source/screens/ongScreen';
+import EditProfile from './source/screens/editProfile';
 
 class App extends Component {
 
   static navigationOptions = ({navigation}) => ({
-    title:'bem vindo'
+    title:'bem vindo',
+    header: null
   })
 
   render() {
     
     return (
-         <Button title="ONG" onPress={() => this.props.navigation.navigate('Ong') } />
+      <OngScreen />
     );
   }
 }
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,  
-    width:'100%',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    paddingTop: 20,
-    flexDirection: 'column',
-  }
-});
-
-
-const Navegador = StackNavigator({
+const Navegador = createStackNavigator({
   Home:{
     screen: App
   },
   Ong:{
     screen: OngScreen
-  }
+  },
 })
 
 export default Navegador;
+
+
+// <Button title="ONG" onPress={() => this.props.navigation.navigate('Ong') } />
