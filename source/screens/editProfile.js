@@ -5,10 +5,25 @@ import {Tacreate, createStackNavigator} from 'react-navigation'
 
 export default class EditProfile extends Component {
 
-  static navigationOptions = ({navigation}) => ({
-    title:'bem vindo',
-    header: null
-  })
+  // static navigationOptions = {
+  //   tabBarLabel:'Msg',
+  //   tabBarIcon:({focused, tintColor}) => {
+  //     if(focused) {
+  //       return(
+  //         <Image source={require('../assets/balao.png')} style={styles.icone} />
+  //       );      
+  //     } else {
+  //       return (
+  //         <Image source={require('../assets/balao.png')} style={styles.icone} />
+  //       );
+  //     }
+  //   }
+  // };
+
+  // static navigationOptions = ({navigation}) => ({
+  //   title:'bem vindo',
+  //   header: null
+  // })
 
   render() {
     
@@ -35,7 +50,6 @@ export default class EditProfile extends Component {
             </View>
           </TouchableOpacity>
         </View>
-        <Button title="ONG" onPress={() => this.props.navigation.navigate('Ong') } />
       </View>
     );
   }

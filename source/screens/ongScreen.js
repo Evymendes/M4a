@@ -1,14 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, FlatList } from 'react-native';
 
+import { TabNavigator} from 'react-navigation';
+
 import dogs from '../assets/dogs.jpeg'
+import Imagem from '../assets/m4a.png'
+import PerfilScreen from './PerfilScreen'
+import MsgScreen from './MsgScreen'
+import PesquisaScreen from './PesquisaScreen'
+import EditProfile from './editProfile'
+import ConfigOrg from '../components/ConfigOrg'
 
 export default class OngScreen extends React.Component {
+  static navigationOptions = {
+    title:'Inicial',
+    header:null
+  };
 
-   static navigationOptions = ({navigation}) => ({
-    title:'bem vindo',
-    header: null
-  })
   constructor(props) {
 		super(props);
 		this.state = {
@@ -40,42 +48,43 @@ export default class OngScreen extends React.Component {
     ]
     }
   } 
-  listaRender(item) {
-    return (
-      <View style={styles.listagem}>
-        <View style={styles.photoDogs}>
-            <Image source={item.img} style={styles.photoDogsImg}  />
-        </View>
-        <View style={styles.text}>
-          <View style={styles.data}>
-            <Text style={styles.data1}>{item.data}</Text>
-          </View>
-          <View style={styles.subTitle}>
-            <Text style={styles.text1}> {item.title}</Text>
-            <Text style={styles.text1}>{item.rua}</Text>
-            <Text style={styles.text1}>{item.horario}</Text>
-          </View>
-        </View>  
-      </View>
-    );
-  }
+  // listaRender(item) {
+  //   return (
+  //     <View style={styles.listagem}>
+  //       <View style={styles.photoDogs}>
+  //           <Image source={item.img} style={styles.photoDogsImg}  />
+  //       </View>
+  //       <View style={styles.text}>
+  //         <View style={styles.data}>
+  //           <Text style={styles.data1}>{item.data}</Text>
+  //         </View>
+  //         <View style={styles.subTitle}>
+  //           <Text style={styles.text1}> {item.title}</Text>
+  //           <Text style={styles.text1}>{item.rua}</Text>
+  //           <Text style={styles.text1}>{item.horario}</Text>
+  //         </View>
+  //       </View>  
+  //        <View style={styles.photoDogs}>
+  //           <Image source={require('../assets/m4a.png')} style={styles.navItenPerfil}  />
+  //       </View>
+  //     </View>
+  //   );
+  // }
   render() {
     
     return (
         <View style={styles.container}>
-          <View style={styles.nav}>
+         {/* <View style={styles.nav}>
             <Image source={require('../assets/perfil.png')} style={styles.navItenPerfil}  />
             <Image style={styles.navIten} source={require('../assets/lupa.png')} />
-            <Image style={styles.navIten} source={require('../assets/balão.jpeg')} />
-          </View>
+            <Image style={styles.navIten} source={require('../assets/balao.jpeg')} />
+            <Image style={styles.navIten} source={require('../assets/balao.jpeg')} />
+          </View>*/}
           <ScrollView >
-            <View style={styles.corpo}>
               <FlatList 
-              data={this.state.ong}
-              renderItem={({item}) => this.listaRender(item )}/>
-
-            </View>
-           
+                data={this.state.ong}
+                renderItem={({item}) => <ConfigOrg data={item} /> }
+              />
           </ScrollView>
         </View>
     );
@@ -87,10 +96,6 @@ const styles = StyleSheet.create({
     flex: 1,  
     width:'100%',
     backgroundColor: '#fff',
-    alignItems: 'center',
-    paddingTop: 20,
-    flexDirection: 'column',
-    
   },
   nav:{
     width:'100%',
@@ -110,37 +115,40 @@ const styles = StyleSheet.create({
     height:25,
     borderRadius: 500,
   },
-  listagem:{
-    flex:1,
-    width: '100%',
-    height: 300,
-  },
-  corpo:{
-    width: '100%',
-  },
-  photoDogs:{
-    width:'90%',
-    height:'55%',
-    margin:20 ,
-    justifyContent: 'center',
-    alignItems: 'center',
-   
-  },
-  text:{
-    height: '30%',
-    flexDirection:'row'
-  },
-  text1:{
-    fontSize: 20,
-    alignItems: 'flex-start',
-  },
-  data1:{
-    fontSize: 30,
-    textAlign: 'center',
-  },
-  data:{
-    width:'30%',
-    marginLeft: 20,
-    backgroundColor:'#f1921e',
-  }
+  // listagem:{
+  //   flex:1,
+  //   width: '100%',
+  //   height: 300,
+  // },
+  // corpo:{
+  //   width: '100%',
+  // },
+  // photoDogs:{
+  //   width:'90%',
+  //   height:'55%',
+  //   margin:20 ,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',   
+  // },
+  // text:{
+  //   height: '30%',
+  //   flexDirection:'row'
+  // },
+  // text1:{
+  //   fontSize: 20,
+  //   alignItems: 'flex-start',
+  // },
+  // data1:{
+  //   fontSize: 30,
+  //   textAlign: 'center',
+  // },
+  // data:{
+  //   width:'30%',
+  //   marginLeft: 20,
+  //   backgroundColor:'#f1921e',
+  // }
 });
+
+
+
+
